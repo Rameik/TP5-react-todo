@@ -1,21 +1,19 @@
 import { useTasks } from "../hooks/useTasks"
 
 export function Task ({content}) {
-    const handleCompletition = () => {
-        
-    }
+    const { deleteTask, assignTaskCompleted } = useTasks()
 
-    const handleCompletition = () => {
-        
+    const checkedStyle = {
+        textDecoration: 'line-through'
     }
 
     return (
         <li>
-            <p>{content.texto}</p>
+            <p className={content.checked ? checkedStyle : {}}><b>{content.texto}</b></p>
             <p>Creada: {content.fechaCreado}</p>
-
-            <button onClick={handleCompletition}>Completada</button>
-            <button onClick={handleDelete}>Eliminar</button>
+            {content.checked && <p>Tachada: {content.fechaTachado}</p>}
+            <button onClick={() => assignTaskCompleted(content)}>Completada</button>
+            <button onClick={() => deleteTask(content)}>Eliminar</button>
         </li>
     )
 }

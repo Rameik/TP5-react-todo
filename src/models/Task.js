@@ -1,6 +1,6 @@
 export default class Task {
-    constructor(id, Texto) {
-        this.id = id
+    constructor(Texto) {
+        this.id = new Date().getTime().toString();
         this.texto = Texto;
         this.fechaCreado = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
         this.fechaTachado = null;
