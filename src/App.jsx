@@ -1,15 +1,14 @@
 import './App.css'
 import { Form } from './components/Form'
 import { TasksList } from './components/TasksList'
-import { DeleteAllButton } from './components/DeleteAllButton'
 
 function App() {
 
   return (
     <>
+      <h1 style={{textAlign: 'center'}}>To do List</h1>
       <Form/>
       <TasksList/>
-      <DeleteAllButton/>
     </>
   )
 }

@@ -6,3 +6,8 @@ form{
 li{
     list-style: none;
 }
+
+.header{
+    display: flex;
+    justify-content: center;
+}

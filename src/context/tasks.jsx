@@ -23,11 +23,13 @@ function useTasksReducer () {
 
     const clearList = () => dispatch({ type: 'CLEAR_LIST' })
 
-    return { state, addToList, removeFromList, clearList, assignTaskCompleted }
+    const getFastestTask = () => dispatch({ type: 'GET_FASTEST_TASK' })
+
+    return { state, addToList, removeFromList, clearList, assignTaskCompleted, getFastestTask }
 }
 
 export function TasksProvider ({children}) {
-    const { state, addToList, removeFromList, clearList, assignTaskCompleted } = useTasksReducer()
+    const { state, addToList, removeFromList, clearList, assignTaskCompleted, getFastestTask } = useTasksReducer()
 
     return (
         <TasksContext.Provider value={{
@@ -35,7 +37,8 @@ export function TasksProvider ({children}) {
             addToList,
             removeFromList,
             clearList,
-            assignTaskCompleted
+            assignTaskCompleted,
+            getFastestTask
         }}>
             {children}
         </TasksContext.Provider>

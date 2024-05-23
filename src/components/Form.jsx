@@ -1,7 +1,7 @@
 import { useTasks } from "../hooks/useTasks"
 
 export function Form () {
-    const { addToList } = useTasks()
+    const { addToList, clearList, getFastestTask } = useTasks()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -10,9 +10,13 @@ export function Form () {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="taskText"/>
-            <button>Agregar tarea</button>
-        </form>
+        <div className="header">
+            <form onSubmit={handleSubmit}>
+                <input type="text" name="taskText"/>
+                <button>Agregar tarea</button>
+            </form>
+            <button onClick={clearList}>Limpiar lista</button>
+            <button onClick={getFastestTask}>Marcar la tarea más rápida</button>
+        </div>
     )
 }
